@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         error: (err) => {
           //error
           console.error('API Fail', err);
+          this.loginForm?.get('password')?.setErrors({ apiError: true });
         }
       })
     }
