@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 // Custom validator function for email format
 function emailValidator(control: AbstractControl): { [key: string]: boolean } | null {
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private httpClient: HttpClient,
-    private router:Router) { }
+    private router: Router,
+    public authService: AuthService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -41,7 +43,8 @@ export class LoginComponent implements OnInit {
       this.httpClient.post('https://localhost:7082/api/Reges/login', loginFormData).subscribe({
         next: (res) => {
           // success 
-          if(res){
+          if (res) {
+            this.authService.login();
             this.router.navigate(['/dashboard']);
           }
           console.log('API Success', res);

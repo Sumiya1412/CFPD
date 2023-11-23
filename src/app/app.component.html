@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container autosize >
+    <mat-sidenav *ngIf="authService.isAuthenticated()" #sidenav fixedInViewport="true" mode="side" opened="{{ isExpanded }}">
+        <app-sidenav (toggleMenu)="toggleMenu()" [isExpanded]="isExpanded"></app-sidenav>
+    </mat-sidenav>
+
+    <mat-sidenav-content [style.margin-left.px]="!isExpanded ? 250 : 250">
+        <div class="content-container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

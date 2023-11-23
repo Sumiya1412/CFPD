@@ -9,7 +9,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-const routes : Routes = [
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+
+
+const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
@@ -19,23 +33,33 @@ const routes : Routes = [
   { path: 'dashboard', component: DashboardComponent },
   {
     path: '',
-    redirectTo:'login',
-    pathMatch:'full'
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
-  ];
+];
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
