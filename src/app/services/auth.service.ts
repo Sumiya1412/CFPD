@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated: boolean = true;
+  private _isAuthenticated: boolean = false;
 
   // Set authentication status (e.g., after successful login)
   login() {
