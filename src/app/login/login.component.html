@@ -10,7 +10,7 @@
       </h1>
       <div>
         <input type="radio" name="usertype" value="user" formControlName="usertype" /><span style="padding-right: 60px;">User</span>
-        <input type="radio" name="usertype" value="admin" formControlName="usertype" />Administrator
+        <input type="radio" name="usertype" value="Administrator" formControlName="usertype" />Administrator
         <div *ngIf="loginForm.get('usertype')?.hasError('required') && loginForm.get('usertype')?.touched"
           class="text-danger">
           Please select valid user type.
