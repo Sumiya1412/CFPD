@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -24,7 +24,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -49,7 +52,8 @@ const routes: Routes = [
     ResetPasswordComponent,
     ForgotPasswordComponent,
     DashboardComponent,
-    SidenavComponent
+    SidenavComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,10 @@ const routes: Routes = [
     MatCardModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    NgChartsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
