@@ -14,6 +14,7 @@ export class SidenavComponent {
     { link: "team", name: "Manage Team", icon: "supervised_user_circle" },
     { link: "user", name: "Manage User", icon: "account_circle" },
     { link: "attendance", name: "Attendance", icon: "av_timer" },
+    { link: "reset-password", name: "Reset Password", icon: "lock_open" },
   ];
 
 

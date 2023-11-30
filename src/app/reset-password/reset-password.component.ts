@@ -14,7 +14,8 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private httpClient: HttpClient) { this.resetForm = this.formBuilder.group({
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      newPassword: ['', Validators.required]
     });}
 
   ngOnInit() {
