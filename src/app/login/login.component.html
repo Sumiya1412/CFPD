@@ -9,7 +9,7 @@
           <div class="footprint">FOOTPRINT</div>
         </div>
       </h1>
-      <div>
+      <!-- <div>
         <input type="radio" name="usertype" value="user" formControlName="usertype" /><span
           style="padding-right: 60px;">User</span>
         <input type="radio" name="usertype" value="Administrator" formControlName="usertype" />Administrator
@@ -17,7 +17,7 @@
           class="text-danger">
           Please select valid user type.
         </div>
-      </div>
+      </div> -->
 
       <div>
         <p [ngClass]="{'label-error': !loginForm.get('username')?.valid && loginForm.get('username')?.touched}">User
