@@ -85,11 +85,19 @@
 }
 
 .header {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .main-logo{
     width: 200px;
     height: auto;
     margin-right: 10px;
+}
+
+.logo-text{
+    padding: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 0px;
 }
