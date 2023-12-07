@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-    private httpClient: HttpClient,
-    private router: Router,
+    public httpClient: HttpClient,
+    public router: Router,
     public authService: AuthService) { }
 
   ngOnInit() {
