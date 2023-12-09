@@ -1,0 +1,71 @@
+<div class="card-container">
+    <span style="margin-right: 50%;font-size: 22px;">View team</span>
+    <!-- app.component.html -->
+</div>
+
+<!-- <div class="table-container">
+    <div class="header">
+        <button (click)="exportToExcel()" class="action-button">Download</button>
+        <button (click)="openBulkUploadPopup()" class="action-button">Bulk Upload</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Team Name</th>
+                <th>Users</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let team of teams">
+                <td>{{ team.name }}</td>
+                <td>{{ team.users }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div *ngIf="showBulkUploadPopup" class="bulk-upload-popup">
+        <h2>Bulk Upload</h2>
+        <p>Select a file to upload or <a href="#">download sample</a>.</p>
+        <input type="file" (change)="handleFileInput($event)">
+        <button (click)="uploadBulkData()">Upload</button>
+        <button (click)="closeBulkUploadPopup()">Close</button>
+    </div>
+</div> -->
+
+<!-- app.component.html -->
+<div class="table-container">
+    <div class="header">
+        <button (click)="exportToExcel()" class="action-button">Download</button>
+        <button (click)="openBulkUploadPopup()" class="action-button">Bulk Upload</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Team Name</th>
+                <th>Users</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let team of teams">
+                <td>{{ team.name }}</td>
+                <td>{{ team.users }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bulk Upload Dialog -->
+<mat-dialog-container *ngIf="showBulkUploadPopup">
+    <h2 mat-dialog-title>Bulk Upload</h2>
+    <mat-dialog-content>
+        <p>Select a file to upload or <a href="#">download sample</a>.</p>
+        <input type="file" (change)="handleFileInput($event)">
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="uploadBulkData()">Upload</button>
+        <button mat-button (click)="closeBulkUploadPopup()">Close</button>
+    </mat-dialog-actions>
+</mat-dialog-container>

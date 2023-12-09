@@ -1,24 +1,25 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated: boolean = false;
+  private _isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   // Set authentication status (e.g., after successful login)
   login() {
-    this._isAuthenticated = true;
+    this._isAuthenticated.next(true);
   }
 
   // Clear authentication status (e.g., after logout)
   logout() {
-    this._isAuthenticated = false;
+    this._isAuthenticated.next(false);
   }
 
   // Get authentication status
-  isAuthenticated(): boolean {
-    return this._isAuthenticated;
+  isAuthenticated(): Observable<boolean> {
+    return this._isAuthenticated.asObservable();
   }
 }

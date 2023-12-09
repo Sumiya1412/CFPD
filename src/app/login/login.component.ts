@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           console.log('API Success', res);
         },
         error: (err) => {
-          this.authService.login();
+          this.authService.logout();
           //error
           console.error('API Fail', err);
           this.loginForm?.get('password')?.setErrors({ apiError: true });

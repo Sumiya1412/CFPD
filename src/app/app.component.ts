@@ -10,10 +10,18 @@ export class AppComponent {
   title = 'CFPD';
   showFiller = false;
   public isExpanded = true;
+  public isLogin = false;
 
   public toggleMenu() {
     this.isExpanded = !this.isExpanded;
   }
   constructor(public authService: AuthService) {
+    this.authService.isAuthenticated().subscribe({
+      next: (val => {
+        this.isExpanded = val;
+        this.isLogin = val;
+      })
+    })
+    console.log(this.authService.isAuthenticated());
   }
 }

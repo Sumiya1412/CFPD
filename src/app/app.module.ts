@@ -28,6 +28,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ViewTeamComponent } from './view-team/view-team.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
+import { BulkUploadDialogComponent } from './bulk-upload-dialog/bulk-upload-dialog.component';
+
 
 
 
@@ -39,6 +45,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'view-team', component: ViewTeamComponent },
   {
     path: '',
     redirectTo: 'login',
@@ -53,7 +60,10 @@ const routes: Routes = [
     ForgotPasswordComponent,
     DashboardComponent,
     SidenavComponent,
-    BarChartComponent
+    BarChartComponent,
+    ViewTeamComponent,
+    ToolbarComponent,
+    BulkUploadDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +86,10 @@ const routes: Routes = [
     MatNativeDateModule,
     MatTableModule,
     NgChartsModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatDialogModule,
+    // MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent
   ],
   providers: [],
   bootstrap: [AppComponent]
