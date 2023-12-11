@@ -2,16 +2,40 @@ import { Component } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
 import { BulkUploadDialogComponent } from '../bulk-upload-dialog/bulk-upload-dialog.component';
+import { MatTableDataSource } from '@angular/material/table';
 
+
+export interface Project {
+  projectName: string;
+  teamMembers: string;
+  startDate: string;
+  endDate: string;
+}
+
+
+const PROJECT_DATA: Project[] = [
+  { projectName: 'Project A', teamMembers: 'User1', startDate: '2023-01-01', endDate: '2023-02-28' },
+  { projectName: 'Project B', teamMembers: 'User2', startDate: '2023-03-01', endDate: '2023-04-30' },
+  { projectName: 'Project A', teamMembers: 'User3', startDate: '2023-03-01', endDate: '2023-04-30' },
+  { projectName: 'Project B', teamMembers: 'User4', startDate: '2023-03-01', endDate: '2023-04-30' },
+  { projectName: 'Project B', teamMembers: 'User5', startDate: '2023-03-01', endDate: '2023-04-30' },
+  { projectName: 'Project A', teamMembers: 'User6', startDate: '2023-03-01', endDate: '2023-04-30' },
+  { projectName: 'Project B', teamMembers: 'User7', startDate: '2023-03-01', endDate: '2023-04-30' }
+
+];
 @Component({
   selector: 'app-view-team',
   templateUrl: './view-team.component.html',
   styleUrls: ['./view-team.component.css']
 })
 export class ViewTeamComponent {
+  displayedColumns: string[] = ['projectName', 'teamMembers', 'startDate', 'endDate'];
+  dataSource = new MatTableDataSource<Project>(PROJECT_DATA);
+
   teams = [
-    { name: 'Team A', users: 'User1, User2' },
-    { name: 'Team B', users: 'User3, User4' },
+    { name: 'Team A', users: 'User1' },
+    { name: 'Team A', users: 'User2' },
+    { name: 'Team B', users: 'User3' },
     // Add more team data as needed
   ];
 

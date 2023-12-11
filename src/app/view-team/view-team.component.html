@@ -37,11 +37,15 @@
 <!-- app.component.html -->
 <div class="table-container">
     <div class="header">
-        <button (click)="exportToExcel()" class="action-button">Download</button>
-        <button (click)="openBulkUploadPopup()" class="action-button">Bulk Upload</button>
+        <button mat-button (click)="exportToExcel()" class="action-button">
+            Download <mat-icon>download</mat-icon>
+        </button>
+        <button mat-button (click)="openBulkUploadPopup()" class="action-button">
+            Bulk Upload <mat-icon>cloud_upload</mat-icon>
+        </button>
     </div>
 
-    <table>
+    <!-- <table>
         <thead>
             <tr>
                 <th>Team Name</th>
@@ -54,7 +58,44 @@
                 <td>{{ team.users }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
+
+    <!-- project-table.component.html -->
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Project Name Column -->
+            <ng-container matColumnDef="projectName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name <mat-icon>filter_list</mat-icon>
+                </th>
+                <td mat-cell *matCellDef="let project"> {{ project.projectName }} </td>
+            </ng-container>
+
+            <!-- Team Members Column -->
+            <ng-container matColumnDef="teamMembers">
+                <th mat-header-cell *matHeaderCellDef> Team Members </th>
+                <td mat-cell *matCellDef="let project"> {{ project.teamMembers }} </td>
+            </ng-container>
+
+            <!-- Start Date Column -->
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef>Assignation Start Date </th>
+                <td mat-cell *matCellDef="let project"> {{ project.startDate }} </td>
+            </ng-container>
+
+            <!-- End Date Column -->
+            <ng-container matColumnDef="endDate">
+                <th mat-header-cell *matHeaderCellDef>Assignation End Date </th>
+                <td mat-cell *matCellDef="let project"> {{ project.endDate }} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+
 </div>
 
 <!-- Bulk Upload Dialog -->
