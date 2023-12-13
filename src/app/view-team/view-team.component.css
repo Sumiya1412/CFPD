@@ -52,7 +52,7 @@ th {
 
 /* app.component.css */
 .table-container {
-    max-width: 800px;
+    max-width: 95%;
     margin: 20px auto;
 }
 
@@ -66,7 +66,7 @@ th {
     width: 150px;
     height: 30px;
     color: white;
-    background-color: #963232;
+    background-color: #0066B3;
     margin: 0 10px;
 }
 
