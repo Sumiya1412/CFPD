@@ -22,7 +22,7 @@ export class BulkUploadDialogComponent {
       if (allowedExtensions.includes(extension.toLowerCase())) {
         this.selectedFile = file;
       } else {
-        console.error('Invalid file type. Please select a valid Excel file.');
+        alert('Invalid file type. Please select a valid Excel file.');
         this.selectedFile = null;
       }
     }
