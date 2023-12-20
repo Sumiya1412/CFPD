@@ -52,7 +52,7 @@ th {
 
 /* app.component.css */
 .table-container {
-    max-width: 95%;
+    max-width: 800px;
     margin: 20px auto;
 }
 

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       let loginFormData = this.loginForm.getRawValue();
       console.log('Entered Values Are', loginFormData);
       //TODO: replace dummy api url with actual url
-      this.httpClient.post('https://localhost:7082/api/Reges/login', loginFormData).subscribe({
+      this.httpClient.post('https://localhost:7082/api/User/login', loginFormData).subscribe({
         next: (res) => {
           // success 
           if (res) {

@@ -14,14 +14,7 @@ export interface Project {
 
 
 const PROJECT_DATA: Project[] = [
-  { projectName: 'Project A', teamMembers: 'User1', startDate: '2023-01-01', endDate: '2023-02-28' },
-  { projectName: 'Project B', teamMembers: 'User2', startDate: '2023-03-01', endDate: '2023-04-30' },
-  { projectName: 'Project A', teamMembers: 'User3', startDate: '2023-03-01', endDate: '2023-04-30' },
-  { projectName: 'Project B', teamMembers: 'User4', startDate: '2023-03-01', endDate: '2023-04-30' },
-  { projectName: 'Project B', teamMembers: 'User5', startDate: '2023-03-01', endDate: '2023-04-30' },
-  { projectName: 'Project A', teamMembers: 'User6', startDate: '2023-03-01', endDate: '2023-04-30' },
-  { projectName: 'Project B', teamMembers: 'User7', startDate: '2023-03-01', endDate: '2023-04-30' }
-
+ 
 ];
 @Component({
   selector: 'app-view-team',

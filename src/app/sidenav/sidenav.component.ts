@@ -11,8 +11,9 @@ export class SidenavComponent {
 
   public routeLinks = [
     { link: "dashboard", name: "Dashboard", icon: "dashboard" },
-    { link: "view-team", name: "Manage Team", icon: "supervised_user_circle" },
-    { link: "user", name: "Manage User", icon: "account_circle" },
+    { link: "view-team", name: "View Team", icon: "supervised_user_circle" },
+    { link: "user", name: "Create User", icon: "account_circle" },
+    { link: "user", name: "View User", icon: "account_circle" },
     { link: "attendance", name: "Attendance", icon: "av_timer" },
     // { link: "reset-password", name: "Reset Password", icon: "lock_open" },
   ];

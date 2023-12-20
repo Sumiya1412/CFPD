@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private _isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(true);
+  private _isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   // Set authentication status (e.g., after successful login)
   login() {
