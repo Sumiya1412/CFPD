@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-bulk-upload-dialog',
@@ -10,7 +10,7 @@ import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialo
 })
 export class BulkUploadDialogComponent {
   selectedFile: File | null = null;
-  constructor(public dialog: MatDialog,private http: HttpClient) { }
+  constructor(public dialogRef: MatDialogRef<BulkUploadDialogComponent>,private http: HttpClient) { }
 
   handleFileInput(event: any): void {
     const file = event.target.files[0];
@@ -34,13 +34,14 @@ export class BulkUploadDialogComponent {
       return;
     }
 
-    const uploadUrl = 'https://localhost:7082/api/ExcelUpload/upload';
+    const uploadUrl = 'https://localhost:7078/api/ExcelUpload/upload';
     const formData: FormData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
 
     this.http.post(uploadUrl, formData)
       .subscribe(response => {
         console.log('File uploaded successfully:', response);
+        this.closeDialog(response);
         // Handle success
       }, error => {
         console.error('File upload failed:', error);
@@ -48,8 +49,8 @@ export class BulkUploadDialogComponent {
       });
   }
 
-  closeDialog(): void {
+  closeDialog(excelData?:any): void {
     // Close the dialog
-    this.dialog.closeAll();
+    this.dialogRef.close({data:excelData});
   }
 }

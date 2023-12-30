@@ -1,46 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
 import { BulkUploadDialogComponent } from '../bulk-upload-dialog/bulk-upload-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { HttpClient } from '@angular/common/http';
 
 
 export interface Project {
-  projectName: string;
-  teamMembers: string;
-  startDate: string;
-  endDate: string;
+  id: number,
+  projectName: string,
+  teamName:string ,
+  teamMemberName: string,
+  assignationStartDate: string,
+  assignationEndDate: string,
 }
 
 
-const PROJECT_DATA: Project[] = [
+
  
-];
+
 @Component({
   selector: 'app-view-team',
   templateUrl: './view-team.component.html',
   styleUrls: ['./view-team.component.css']
 })
-export class ViewTeamComponent {
-  displayedColumns: string[] = ['projectName', 'teamMembers', 'startDate', 'endDate'];
-  dataSource = new MatTableDataSource<Project>(PROJECT_DATA);
+export class ViewTeamComponent implements OnInit{
+  displayedColumns: string[] = ['projectName', 'teamName','teamMemberName', 'assignationStartDate', 'assignationEndDate'];
+  dataSource:any;
 
-  teams = [
-    { name: 'Team A', users: 'User1' },
-    { name: 'Team A', users: 'User2' },
-    { name: 'Team B', users: 'User3' },
-    // Add more team data as needed
-  ];
+  teams:any;
 
   showBulkUploadPopup = false;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private httpClient:HttpClient) { }
+  ngOnInit(): void {
+   this.loadData(); 
+  }
+  loadData(){
+    this.httpClient.get('https://localhost:7078/api/Item/items').subscribe({next:(value:any)=>{
+     this.teams=value;
+    this.dataSource = new MatTableDataSource<Project>(value);
+    }})
+  }
 
   openBulkUploadPopup(): void {
     const dialogRef = this.dialog.open(BulkUploadDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // The result is the data passed from the modal
+      console.log('Dialog closed with data:', result);
+      if (result) {
+        let res:Project[]=result.data.map((x:any)=>{
+          return {projectName: x['Project Name '],
+            teamName:x['Team Name'] ,
+            teamMemberName: x['Team Member Name'],
+            assignationStartDate: x['Assignation Start Date '],
+            assignationEndDate: x['Assignation End Date '],}
+        })
+        this.teams=res;
+        this.dataSource = new MatTableDataSource<Project>(res);
+      }
     });
   }
 

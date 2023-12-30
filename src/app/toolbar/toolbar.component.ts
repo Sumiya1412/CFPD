@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,7 +11,7 @@ export class ToolbarComponent {
   isLoggedIn = false; // Set this to true when the user is logged in
   userEmail = 'user@example.com'; // Replace with the actual user email
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService,private router:Router) {
   }
 
   ngOnInit(): void {
@@ -22,6 +23,8 @@ export class ToolbarComponent {
   }
 
   logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
     // Implement your logout logic here
     console.log('Logout clicked!');
     // You might want to redirect the user to the login page or perform other actions.

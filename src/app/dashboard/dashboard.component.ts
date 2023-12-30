@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 export interface PeriodicElement {
   name: string;
@@ -29,7 +30,7 @@ export class DashboardComponent {
   displayedColumns: string[] = ['Name', 'Total Hours', 'CO2 (Kg)', 'CO2 (%)', 'Action'];
   dataSource = ELEMENT_DATA;
   public dateValue=new Date();
-
+  constructor(public authService:AuthService){}
   onDateChange(value:any){
     console.log(value);
     console.log(this.dateValue);

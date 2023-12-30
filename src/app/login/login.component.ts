@@ -40,11 +40,12 @@ export class LoginComponent implements OnInit {
       let loginFormData = this.loginForm.getRawValue();
       console.log('Entered Values Are', loginFormData);
       //TODO: replace dummy api url with actual url
-      this.httpClient.post('https://localhost:7082/api/User/login', loginFormData).subscribe({
-        next: (res) => {
+      this.httpClient.post('https://localhost:7078/api/Users/login', loginFormData).subscribe({
+        next: (res:any) => {
           // success 
           if (res) {
             this.authService.login();
+            this.authService.isAdmin=res.userType=='Admin';
             this.router.navigate(['/dashboard']);
           }
           console.log('API Success', res);
