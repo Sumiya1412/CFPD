@@ -10,10 +10,14 @@ export class SidenavComponent {
   @Input() isExpanded: boolean = false;
   @Output() toggleMenu = new EventEmitter();
 
-  
-  constructor(public authService:AuthService){
-  
-  
+  routeLinks: any[] = [];
+
+  constructor(public authService: AuthService) {
+    this.authService.getRouteLinks().subscribe({
+      next: (value) => {
+        this.routeLinks = value;
+      }
+    });
   }
 
 }
