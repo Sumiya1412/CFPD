@@ -31,9 +31,10 @@ import { NgChartsModule } from 'ng2-charts';
 import { ViewTeamComponent } from './view-team/view-team.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { BulkUploadDialogComponent } from './bulk-upload-dialog/bulk-upload-dialog.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -45,8 +46,8 @@ const routes: Routes = [
   },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'view-team', component: ViewTeamComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'view-team', component: ViewTeamComponent, canActivate: [AuthGuard] },
   {
     path: '',
     redirectTo: 'login',
