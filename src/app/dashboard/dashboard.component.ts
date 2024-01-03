@@ -28,10 +28,16 @@ export class DashboardComponent {
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   displayedColumns: string[] = ['Name', 'Total Hours', 'CO2 (Kg)', 'CO2 (%)', 'Action'];
-  dataSource = ELEMENT_DATA;
-  public dateValue=new Date();
-  constructor(public authService:AuthService){}
-  onDateChange(value:any){
+  dataSource: any;
+  public dateValue = new Date();
+  constructor(public authService: AuthService) {
+    if (authService.isAdmin) {
+      this.dataSource = ELEMENT_DATA;
+    } else {
+      this.dataSource = [ELEMENT_DATA[0]];
+    }
+  }
+  onDateChange(value: any) {
     console.log(value);
     console.log(this.dateValue);
   }

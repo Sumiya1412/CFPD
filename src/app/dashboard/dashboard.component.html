@@ -2,11 +2,11 @@
     <div class="card-container">
         <span style="margin-right: 50%;font-size: 22px;">Dashboard</span>
 
-        <button mat-raised-button class="create-new-team-button background-white" style="margin-right: 2%;">
+        <button mat-raised-button class="create-new-team-button background-white" style="margin-right: 2%;" *ngIf="authService.isAdmin">
             <mat-icon>search</mat-icon> Search
         </button>
 
-        <button mat-raised-button class="create-new-team-button background-white">
+        <button mat-raised-button class="create-new-team-button background-white" *ngIf="authService.isAdmin">
             <mat-icon class="create-new-team-icon">add</mat-icon> Create New Team
         </button>
 
@@ -15,7 +15,7 @@
                 <img matChipAvatar
                     src="https://www.nicepng.com/png/detail/186-1866063_dicks-out-for-harambe-sample-avatar.png"
                     alt="Photo of a Shiba Inu" />
-                Admin
+                {{authService.isAdmin?'Admin':'User'}}
             </mat-chip>
             <!-- <mat-icon class="create-new-team-icon">add</mat-icon> Create New Team -->
         </button>
@@ -28,23 +28,22 @@
     <hr>
     <div class="card-container">
         <span style="margin-right: 50%;font-size: 20px;">Overview</span>
-        <mat-select class="custom-dropdown" placeholder="Select Team">
+        <mat-select class="custom-dropdown" placeholder="Select Team" *ngIf="authService.isAdmin">
             <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
         </mat-select>
-        <mat-select class="custom-dropdown" placeholder="Select User">
+        <mat-select class="custom-dropdown" placeholder="Select User" *ngIf="authService.isAdmin">
             <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
         </mat-select>
-        <mat-select class="custom-dropdown" placeholder="Severity">
+        <mat-select class="custom-dropdown" placeholder="Severity" *ngIf="authService.isAdmin">
             <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
         </mat-select>
-
-        <!-- <mat-form-field>
-            <mat-label>Choose a date</mat-label> -->
-            <input matInput [matDatepicker]="picker" class="date-picker-input" (ngModelChange)="onDateChange($event)" [(ngModel)]="dateValue">
+        <ng-container *ngIf="authService.isAdmin">
+            <input matInput [matDatepicker]="picker" class="date-picker-input" (ngModelChange)="onDateChange($event)"
+                [(ngModel)]="dateValue">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-        <!-- </mat-form-field> -->
-
+            <!-- </mat-form-field> -->
+        </ng-container>
     </div>
     <div class="card-container">
         <!-- First Card -->
