@@ -64,18 +64,18 @@
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-            <!-- Project Name Column -->
-            <ng-container matColumnDef="projectName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name <mat-icon style="vertical-align: middle;">filter_list</mat-icon>
+            <!-- Project Code Column -->
+            <ng-container matColumnDef="projectCode">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Code <mat-icon style="vertical-align: middle;">filter_list</mat-icon>
                 </th>
-                <td mat-cell *matCellDef="let project"> {{ project.projectName }} </td>
+                <td mat-cell *matCellDef="let project"> {{ project.projectCode }} </td>
             </ng-container>
-            <!-- Team Name Column -->
+            <!-- Team Name Column
             <ng-container matColumnDef="teamName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Team Name <mat-icon style="vertical-align: middle;">filter_list</mat-icon>
                 </th>
                 <td mat-cell *matCellDef="let project"> {{ project.teamName }} </td>
-            </ng-container>
+            </ng-container> -->
 
             <!-- Team Member name Column -->
             <ng-container matColumnDef="teamMemberName">

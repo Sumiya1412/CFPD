@@ -25,7 +25,7 @@ export interface Project {
   styleUrls: ['./view-team.component.css']
 })
 export class ViewTeamComponent implements OnInit{
-  displayedColumns: string[] = ['projectName', 'teamName','teamMemberName', 'assignationStartDate', 'assignationEndDate'];
+  displayedColumns: string[] = ['projectCode','teamMemberName', 'assignationStartDate', 'assignationEndDate'];
   dataSource:any;
 
   teams:any;
@@ -50,15 +50,16 @@ export class ViewTeamComponent implements OnInit{
       // The result is the data passed from the modal
       console.log('Dialog closed with data:', result);
       if (result) {
-        let res:Project[]=result.data.map((x:any)=>{
-          return {projectName: x['Project Name '],
-            teamName:x['Team Name'] ,
-            teamMemberName: x['Team Member Name'],
-            assignationStartDate: x['Assignation Start Date '],
-            assignationEndDate: x['Assignation End Date '],}
-        })
-        this.teams=res;
-        this.dataSource = new MatTableDataSource<Project>(res);
+        // let res:Project[]=result.data.map((x:any)=>{
+        //   return {projectCode: x['projectCode'],
+        //     // teamName:x['Team Name'] ,
+        //     teamMemberName: x['teamMemberName'],
+        //     assignationStartDate: x['assignationStartDate'],
+        //     assignationEndDate: x['assignationEndDate'],}
+        // })
+        // this.teams=res;
+        // this.dataSource = new MatTableDataSource<Project>(res);
+        this.loadData();
       }
     });
   }

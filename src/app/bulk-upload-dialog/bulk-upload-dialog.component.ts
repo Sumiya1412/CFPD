@@ -34,11 +34,11 @@ export class BulkUploadDialogComponent {
       return;
     }
 
-    const uploadUrl = 'https://localhost:7078/api/ExcelUpload/upload';
+    const uploadUrl = 'https://localhost:7078/api/Excel1/upload';
     const formData: FormData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
 
-    this.http.post(uploadUrl, formData)
+    this.http.post<string>(uploadUrl, formData)
       .subscribe(response => {
         console.log('File uploaded successfully:', response);
         this.closeDialog(response);

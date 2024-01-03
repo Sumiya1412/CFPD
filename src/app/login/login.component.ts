@@ -44,8 +44,9 @@ export class LoginComponent implements OnInit {
         next: (res:any) => {
           // success 
           if (res) {
-            this.authService.login();
             this.authService.isAdmin=res.userType=='Admin';
+            this.authService.login();
+           
             this.router.navigate(['/dashboard']);
           }
           console.log('API Success', res);
