@@ -33,7 +33,7 @@ mat-sidenav[style] {
   }
   
   .header {
-    color: #0066B3;
+    color: #2a71e0;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -60,13 +60,13 @@ mat-sidenav[style] {
   }
   
   input[type="submit"] {
-    background-color: #0066B3;
+    background-color: #2a71e0;
     color: white;
     cursor: pointer;
   }
   
   .forgot-password-link {
-    color: #0066B3;
+    color: #2a71e0;
     text-decoration: underline;
   }
   
@@ -141,18 +141,22 @@ mat-sidenav[style] {
   }
   
   .text {
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
     color: #333;
   }
   
   .footprint {
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
     color: #666;
   }
   
   input[type="text"]:focus,
   input[type="password"]:focus {
-    border: 2px solid #0066B3;
+    border: 2px solid #2a71e0;
     outline: none;
   
   }
@@ -182,6 +186,6 @@ mat-sidenav[style] {
   }
   
   .reset-now-link{
-    color:#0066B3;
+    color:#2a71e0;
     cursor:pointer
   }
