@@ -2,6 +2,7 @@
 <mat-dialog-content>
     <p>Select a file to upload.</p>
     <input type="file" (change)="handleFileInput($event)">
+    <p *ngIf="errorMessage" style="color: red;">{{errorMessage}}</p>
 </mat-dialog-content>
 <mat-dialog-actions class="footer-actions">
     <button mat-button (click)="uploadBulkData()" color="primary">Upload</button>

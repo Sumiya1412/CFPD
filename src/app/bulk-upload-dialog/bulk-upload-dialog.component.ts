@@ -10,6 +10,7 @@ import { MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialo
 })
 export class BulkUploadDialogComponent {
   selectedFile: File | null = null;
+  errorMessage='';
   constructor(public dialogRef: MatDialogRef<BulkUploadDialogComponent>,private http: HttpClient) { }
 
   handleFileInput(event: any): void {
@@ -46,6 +47,7 @@ export class BulkUploadDialogComponent {
       }, error => {
         console.error('File upload failed:', error);
         // Handle error
+        this.errorMessage=error.error;
       });
   }
 
