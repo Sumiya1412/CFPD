@@ -1,0 +1,67 @@
+form f1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+}
+.myform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.menu{
+    margin-top: 5px;
+    top: 0;
+    float: left;
+    font-size: 50px;
+    position: start;
+   
+}    
+ 
+label {
+    margin-bottom: 8px;
+    display:block;
+    margin-left:250px;
+    font-weight:bold;
+}
+ 
+.input {
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-color: #007bff;
+    margin-right: 270px;
+    width: 230px;
+}
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: 2px solid blue;
+    border-radius: 5px;
+    cursor: pointer;
+    align-content: center;
+    align-items: center;
+    width: 170px;
+    margin-left:330px;
+}
+ 
+button:hover {
+    background-color: #0056b3;
+}
+.form-container{
+    display:flex;
+    margin-top:75px;
+    flex-direction:column;
+    align-items: center;
+ 
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 25px;
+}

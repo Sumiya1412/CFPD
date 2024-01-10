@@ -35,6 +35,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { BulkUploadDialogComponent } from './bulk-upload-dialog/bulk-upload-dialog.component';
 import { AuthGuard } from './auth.guard';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'view-team', component: ViewTeamComponent, canActivate: [AuthGuard] },
+  { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
   {
     path: '',
     redirectTo: 'login',
@@ -65,7 +67,8 @@ const routes: Routes = [
     BarChartComponent,
     ViewTeamComponent,
     ToolbarComponent,
-    BulkUploadDialogComponent
+    BulkUploadDialogComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
