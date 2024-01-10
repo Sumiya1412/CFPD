@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
 import { BulkUploadDialogComponent } from '../bulk-upload-dialog/bulk-upload-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 export interface Project {
@@ -24,17 +25,22 @@ export interface Project {
   templateUrl: './view-team.component.html',
   styleUrls: ['./view-team.component.css']
 })
-export class ViewTeamComponent implements OnInit{
+export class ViewTeamComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['projectCode','teamMemberName', 'assignationStartDate', 'assignationEndDate'];
   dataSource:any;
 
   teams:any;
 
   showBulkUploadPopup = false;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   constructor(public dialog: MatDialog,private httpClient:HttpClient) { }
   ngOnInit(): void {
    this.loadData(); 
+  }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
   loadData(){
     this.httpClient.get('https://localhost:7078/api/Item/items').subscribe({next:(value:any)=>{
