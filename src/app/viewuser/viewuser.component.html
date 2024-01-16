@@ -1,0 +1,26 @@
+<h1>ViewUser</h1>
+ <div class="usericon">
+    <i class="fa fa-user fa-5x"></i>
+  </div>
+  <div class="logicon">
+    <i class='fa fa-sign-out'></i>
+  </div>
+  <body>
+    <table class="my-user">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Name</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users ">
+            <td>{{ item.userName }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.mobileNumber }}</td>
+ 
+          </tr>
+        </tbody>
+    </table>
+  </body>

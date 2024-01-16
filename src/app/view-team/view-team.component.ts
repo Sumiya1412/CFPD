@@ -46,6 +46,8 @@ export class ViewTeamComponent implements OnInit, AfterViewInit {
     this.httpClient.get('https://localhost:7078/api/Item/items').subscribe({next:(value:any)=>{
      this.teams=value;
     this.dataSource = new MatTableDataSource<Project>(value);
+    this.dataSource.paginator = this.paginator;
+  
     }})
   }
 

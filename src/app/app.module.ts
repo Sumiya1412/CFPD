@@ -36,6 +36,8 @@ import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, Ma
 import { BulkUploadDialogComponent } from './bulk-upload-dialog/bulk-upload-dialog.component';
 import { AuthGuard } from './auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { ViewUserComponent } from './viewuser/viewuser.component';
+
 
 
 
@@ -50,6 +52,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'view-team', component: ViewTeamComponent, canActivate: [AuthGuard] },
   { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
+  { path: 'view-user', component: ViewUserComponent, canActivate: [AuthGuard] },
   {
     path: '',
     redirectTo: 'login',
@@ -68,7 +71,8 @@ const routes: Routes = [
     ViewTeamComponent,
     ToolbarComponent,
     BulkUploadDialogComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ export class AuthService {
       this.routeLinks = [...[{ link: "dashboard", name: "Dashboard", icon: "dashboard" },
       { link: "view-team", name: "View Team", icon: "supervised_user_circle" },
       { link: "create-user", name: "Create User", icon: "create" },
-      { link: "user", name: "View User", icon: "account_circle" },
+      { link: "view-user", name: "View User", icon: "account_circle" },
       { link: "attendance", name: "Attendance", icon: "av_timer" },
         // { link: "reset-password", name: "Reset Password", icon: "lock_open" },]
       ]]
@@ -54,4 +54,6 @@ export class AuthService {
     }
     this._sideMenuLinks.next(this.routeLinks);
   }
+  
+
 }
