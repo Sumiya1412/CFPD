@@ -1,26 +1,34 @@
-<h1>ViewUser</h1>
- <div class="usericon">
-    <i class="fa fa-user fa-5x"></i>
-  </div>
-  <div class="logicon">
-    <i class='fa fa-sign-out'></i>
-  </div>
-  <body>
-    <table class="my-user">
-        <thead>
-            <tr>
-                <th>User Name</th>
-                <th>Name</th>
-                <th>Mobile Number</th>
-            </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of users ">
-            <td>{{ item.userName }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.mobileNumber }}</td>
- 
-          </tr>
-        </tbody>
+<div class="card-container">
+    <span style="margin-right: 50%;font-size: 22px;">View User</span>
+    
+</div>
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name 
+            </th>
+            <td mat-cell *matCellDef="let project"> {{ project.userName }} </td>
+        </ng-container>
+    
+
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let project"> {{ project.name }} </td>
+        </ng-container>
+
+        
+        <ng-container matColumnDef="mobileNumber">
+            <th mat-header-cell *matHeaderCellDef>Mobile Number </th>
+            <td mat-cell *matCellDef="let project"> {{project.mobileNumber}} </td>
+        </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </body>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>
+
+
