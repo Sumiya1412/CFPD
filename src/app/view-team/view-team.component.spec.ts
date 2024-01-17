@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ViewTeamComponent } from './view-team.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as XLSX from 'xlsx';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 fdescribe('ViewTeamComponent', () => {
   let component: ViewTeamComponent;
@@ -19,6 +20,7 @@ fdescribe('ViewTeamComponent', () => {
         MatTableModule,
         MatIconModule,
         HttpClientTestingModule,
+        MatPaginatorModule,
         BrowserAnimationsModule,
       ],
     })
@@ -28,6 +30,10 @@ fdescribe('ViewTeamComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ViewTeamComponent);
     component = fixture.componentInstance;
+    const matPaginator = jasmine.createSpyObj('MatPaginator', ['length', 'pageSize', 'pageIndex', 'pageCount', 'previousPage', 'nextPage']);
+
+    component.paginator = matPaginator;
+    component.dataSource = new MatTableDataSource<any>([]);
     fixture.detectChanges();
   });
 
