@@ -1,0 +1,42 @@
+<div class="dashboard-content">
+    <!-- <mat-toolbar class="custom-toolbar" style="padding-left:250px ;">
+        <h1 class="logo-text">HCLTech</h1>
+        <span class="spacer"></span>
+        <div class="icons-container">
+            <button mat-icon-button *ngIf="isLoggedIn">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="isLoggedIn" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar> -->
+
+    <div class="sap">
+        <h2>Employee Code:&nbsp;&nbsp;{{employeecode}} </h2>
+        <h2>Employee Name:&nbsp;&nbsp;{{employeedata.employeeName}}</h2>
+        <h2>Project Name:&nbsp;&nbsp;{{employeedata.projectName}}</h2>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-box">
+            <span>{{averageCarbonFootprint}}KG</span><br>
+            <span class="title">CO2 Per Day</span>
+        </div>
+        <div class="flex-box1">
+            <span>{{averageEnergyConsumed}}KWH</span><br>
+            <span class="title">Energy Usage</span><br>
+            <span class="title">Per Day</span>
+        </div>
+        <div class="flex-box2">
+            <span>{{averageCarbonFootprintPercentage}}%</span><br>
+            <span class="title">CO2% Per Day</span>
+        </div>
+    </div>
+
+    <div class="nat">
+        <canvas id="myLineChart"></canvas>
+    </div>
+
+
+</div>

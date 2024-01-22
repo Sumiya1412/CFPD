@@ -1,4 +1,5 @@
 // auth.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -12,10 +13,18 @@ export class AuthService {
   private routeLinks: any[] = [
 
   ];
+  constructor(private httpClient:HttpClient){
+    // this.loadSideMenu();
+  }
   // Set authentication status (e.g., after successful login)
   login() {
     this.loadSideMenu();
     this._isAuthenticated.next(true);
+  }
+  public exportToExcel()
+  {
+    return this.httpClient.get("httpurl/action",
+    {observe:'response', responseType:'blob'})
   }
 
   // Clear authentication status (e.g., after logout)

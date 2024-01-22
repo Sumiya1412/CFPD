@@ -37,6 +37,8 @@ import { BulkUploadDialogComponent } from './bulk-upload-dialog/bulk-upload-dial
 import { AuthGuard } from './auth.guard';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { ViewUserComponent } from './viewuser/viewuser.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { TeamMember1DetailsComponent } from './team-member1-details/team-member1-details.component';
 
 
 
@@ -53,6 +55,8 @@ const routes: Routes = [
   { path: 'view-team', component: ViewTeamComponent, canActivate: [AuthGuard] },
   { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
   { path: 'view-user', component: ViewUserComponent, canActivate: [AuthGuard] },
+  { path: 'attendance', component: AttendanceComponent, canActivate: [AuthGuard] },
+  { path: 'team-member1-details/:id', component: TeamMember1DetailsComponent, canActivate: [AuthGuard] },
   {
     path: '',
     redirectTo: 'login',
@@ -72,7 +76,9 @@ const routes: Routes = [
     ToolbarComponent,
     BulkUploadDialogComponent,
     CreateUserComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    AttendanceComponent,
+    TeamMember1DetailsComponent
   ],
   imports: [
     BrowserModule,
