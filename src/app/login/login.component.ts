@@ -44,10 +44,16 @@ export class LoginComponent implements OnInit {
         next: (res:any) => {
           // success 
           if (res) {
+            this.authService.userFullName=res.name; 
             this.authService.isAdmin=res.userType=='Admin';
             this.authService.login();
             localStorage.setItem('userName',res.userName);
-            this.router.navigate(['/dashboard']);
+            if(this.authService.isAdmin){
+              this.router.navigate(['/dashboard']);
+            }else{
+              this.router.navigate(['/team-member-dashboard']);
+            }
+            
           }
           console.log('API Success', res);
         },

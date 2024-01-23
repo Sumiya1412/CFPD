@@ -39,6 +39,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { ViewUserComponent } from './viewuser/viewuser.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { TeamMember1DetailsComponent } from './team-member1-details/team-member1-details.component';
+import { TeamMemberComponent } from './team-member/team-member.component';
 
 
 
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
   { path: 'view-user', component: ViewUserComponent, canActivate: [AuthGuard] },
   { path: 'attendance', component: AttendanceComponent, canActivate: [AuthGuard] },
+  { path: 'team-member-dashboard', component: TeamMemberComponent, canActivate: [AuthGuard] },
   { path: 'team-member1-details/:id', component: TeamMember1DetailsComponent, canActivate: [AuthGuard] },
   {
     path: '',
@@ -78,7 +80,8 @@ const routes: Routes = [
     CreateUserComponent,
     ViewUserComponent,
     AttendanceComponent,
-    TeamMember1DetailsComponent
+    TeamMember1DetailsComponent,
+    TeamMemberComponent
   ],
   imports: [
     BrowserModule,

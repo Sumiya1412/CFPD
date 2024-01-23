@@ -1,4 +1,4 @@
-.background-white {
+background-white {
     background-color: white !important;
 }
 .card-container {
@@ -10,6 +10,10 @@
     max-width: 1000px;
     margin: 20px auto;
     margin-left: 5px;
+}
+ 
+.button-container {
+    display: flex;
 }
  
 .header {
@@ -44,6 +48,6 @@ th {
     width: 150px;
     height: 30px;
     color: white;
-    background-color: #0066B3;
+    background-color: #2a71e0;
     margin: 0 10px;
 }

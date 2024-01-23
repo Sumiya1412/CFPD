@@ -13,7 +13,7 @@ export class Adminservice {
 
   getTableData(searchParams: HttpParams): Observable<any[]> {
 
-    return this.http.get<any[]>('https://localhost:7078/api/Attendance/ProjectDetails2', { params: searchParams });
+    return this.http.get<any[]>('https://localhost:7078/api/Attendance/AdminDashboard', { params: searchParams });
   }
 
   getProjectNames(): Observable<string[]> {
@@ -21,7 +21,7 @@ export class Adminservice {
   }
 
   getCarbonFootprintData(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7078/api/Attendance/ProjectDetails2');
+    return this.http.get<any[]>('https://localhost:7078/api/Attendance/AdminDashboard');
   }
 
 

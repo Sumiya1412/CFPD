@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   public isAdmin = false;
+  public userFullName = "";
   private _isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private _sideMenuLinks: BehaviorSubject<any> = new BehaviorSubject([]);
   private routeLinks: any[] = [
