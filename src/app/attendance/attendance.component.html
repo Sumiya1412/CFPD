@@ -1,8 +1,7 @@
-
 <!-- attendance.component.html -->
 <div class="attendance-content">
     <div class="card-container">
-        <span style="margin-right: 50%;font-size: 22px;"> Attendance </span>
+        <span class="app-page-title"> Attendance </span>
     </div>
 </div>
 <!--  
@@ -20,30 +19,30 @@
     <br>
     <div class="button-container">
         <button style="height: 35px; background-color: white; border: none; border-radius: 4px;">
-            <label for=""> Select Project Code </label>
+            <label for=""></label>
             <select class="form-control" [(ngModel)]="projectId">
-                <option value=""> Select Project Code </option>
+                <option value=""> Select Project Name </option>
                 <option *ngFor="let projectOption of projectOptions" [value]="projectOption">{{ projectOption }}
                 </option>
             </select>
         </button>
-        &nbsp;
+        &nbsp; &nbsp;
         <button style="height: 35px; background-color: white; border: none; border-radius: 4px;">
-            <label for=""> Select Member Name </label>
+            <label for=""> </label>
             <select class="form-control" [(ngModel)]="memberId">
                 <option value=""> Select Member Name </option>
                 <option *ngFor="let memberOption of memberOptions" [value]="memberOption">{{ memberOption }}</option>
             </select>
         </button>
-        &nbsp;
+        &nbsp; &nbsp;
         <button style="height: 35px; background-color: white; border: none; border-radius: 4px;">
             Select Start Date: <input type="date" [(ngModel)]="StartDateSelected" [max]="maxDate">
         </button>
-        &nbsp;
+        &nbsp; &nbsp;
         <button style="height: 35px; background-color: white; border: none; border-radius: 4px;">
             Select End Date: <input type="date" [(ngModel)]="EndDateSelected" [max]="maxDate">
         </button>
-        &nbsp;
+        &nbsp; &nbsp;
         <!---<button mat-raised-button class="create-new-team-button background-white" style="margin-right: 2%;"
             (click)="search()">
             <mat-icon>search</mat-icon> Search
@@ -55,7 +54,7 @@
     </div>
     <br>
     <!-- project-table.component.html -->
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8" id="mat-elevation-z9">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <!-- Project Name Column -->
             <ng-container matColumnDef="projectName">
@@ -103,7 +102,7 @@
     <h2 mat-dialog-title>Bulk Upload</h2>
     <mat-dialog-content>
         <p>Select a file to upload </p>
-        <input type="file" (change)="handleFileInput($event)">
+        <input type="file" >
     </mat-dialog-content>
     <mat-dialog-actions>
         <button mat-button (click)="uploadBulkData()">Upload</button>

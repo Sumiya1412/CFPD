@@ -46,7 +46,7 @@ export class AttendanceComponent implements OnInit {
   memberOptions: string[] = [];
 
   pageSizeOptions = [5, 10, 25, 50, 100];
-  pageSize: number = 5;
+  pageSize: any;
 
   displayedColumns: string[] = ['projectName', 'teamMemberName', 'noOfDaysOfAttendance', 'noOfHours'];
   dataSource: MatTableDataSource<any>; // Use 'any' type for flexibility
@@ -133,12 +133,12 @@ export class AttendanceComponent implements OnInit {
     });
   }
 
-  onPageChange(event: PageEvent): void {
-    const startIndex = event.pageIndex * event.pageSize;
-    const endIndex = startIndex + event.pageSize;
-    this.teams = this.completeTeams.slice(startIndex, endIndex);
-    this.dataSource.data = this.teams;
-  }
+  // onPageChange(event: PageEvent): void {
+  //   const startIndex = event.pageIndex * event.pageSize;
+  //   const endIndex = startIndex + event.pageSize;
+  //   this.teams = this.completeTeams.slice(startIndex, endIndex);
+  //   this.dataSource.data = this.teams;
+  // }
 
   handleFileInput(event: any): void {
     const file = event.target.files[0];
@@ -153,6 +153,7 @@ export class AttendanceComponent implements OnInit {
       next: (response) => {
         console.log('File uploaded successfully:', response);
         this.closeBulkUploadPopup();
+        this.loadData();
         console.log('Popup closed after successful upload');
       },
       error: (error) => {
@@ -167,8 +168,9 @@ export class AttendanceComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        const file = result.data[0]; // Assuming the first element in data is the file
-        this.uploadFile(file);
+        // const file = result.data[0]; // Assuming the first element in data is the file
+        // this.uploadFile(file);
+        this.loadData();
       }
     });
   }

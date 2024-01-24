@@ -46,9 +46,9 @@ export class AuthService {
   loadSideMenu() {
     if (this.isAdmin) {
       this.routeLinks = [...[{ link: "dashboard", name: "Dashboard", icon: "dashboard" },
-      { link: "view-team", name: "View Team", icon: "supervised_user_circle" },
       { link: "create-user", name: "Create User", icon: "create" },
       { link: "view-user", name: "View User", icon: "account_circle" },
+      { link: "view-team", name: "View Team", icon: "supervised_user_circle" },
       { link: "attendance", name: "Attendance", icon: "av_timer" },
         // { link: "reset-password", name: "Reset Password", icon: "lock_open" },]
       ]]

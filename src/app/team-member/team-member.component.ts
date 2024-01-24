@@ -20,10 +20,7 @@ export class TeamMemberComponent implements OnInit {
   ]
   exportToExcel(): void {
 
-    /*if (this.projectdetails.length === 0) {
-      console.warn('No data to download.');
-      return;
-    }*/
+    
     for (let i = 0; i < this.TableData.length; i++) {
       this.employeedetails.push(Object.values(this.TableData[i]));
     }

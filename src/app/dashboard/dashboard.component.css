@@ -1,221 +1,201 @@
 .custom-dropdown {
-    background-color: white;
-    border-radius: 20%;
-    padding: 10px;
-    margin: 0px;
-    border-radius: 30px;
-    /*height: 20px;
-    width: 15%;
-    margin-right: 10px;*/
-  }
-   
-  .dropdown {
-  width: 170px;
-  height: 15px;
-  margin-left: 60px;
-  }
-   
-  /*.btn1 {
-  background-color: rgb(0, 0, 0);
-  border: none;
-  color: white;
-  margin-left: 30px;
-  margin-bottom: -200px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 15px;
-   
-  }*/
-   
-   
-  .notes{
-   
-  margin-left: 5px;
-  }
-   
-   
-  button{
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-left: 30px;
-  margin-top: 5px;
-  }
-   
-   
-   
-  .rectangle{
-  padding: 15px;
-  border: solid #000;
-  border-collapse: collapse;
-  background-color: rgba(132, 129, 129, 0.169);
-  width: 26%;
-  height: 60px;
-  margin-top: -250px;
-  margin-left: 700px;
-  text-align: center;
-  }
-   
-  .title1{
-  color: rgb(9, 188, 9);
-  }
-  .title2{
-  color: rgb(254, 169, 10);
-  }
-  .title3{
-  color:rgb(224, 12, 12);
-  }
-   
-   
-  .status{
-  background-color:orange;
-  border-radius: 1rem;
-   
-   
-  }
-  .status1{
-  background-color: green;
-  border-radius: 1rem;
-   
-   
-  }
-  .status2{
-  background-color: red;
-  border-radius: 1rem;
-   
-  }
-   
-   
-   
-  .container1 {
-  display: flex;
-  justify-content:baseline;
-  /*margin-left: 20px;*/
-   
-  }
-   
-  .nat{
-      width: 600px;
-      height: 400px;
-      margin-left: 60px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-   
-     
-   
-  }
-   
-  #myChart {
-    background-color: white;
-  }
-   
-   
-   
-  .calender{
-      margin-left: 60px;
-      margin-top: 3px;
-      line-height: 0.7px;
-      background-color: white;
-      border-radius: 30px;
-      padding: 8px;
-      height: 25px;
-    }
-   
-  .calender1{
-  margin-left: 40px;
-  margin-top: 3px;
-  line-height: 0.7px;
   background-color: white;
+  border-radius: 20%;
+  padding: 10px;
+  margin: 0px;
   border-radius: 30px;
-  padding: 8px;
-  height: 25px;
-    }
+  /*height: 20px;
+  width: 15%;
+  margin-right: 10px;*/
+}
+ 
+.dropdown {
+width: 170px;
+height: 15px;
+margin-left: 60px;
+}
+ 
+
+ 
+ 
+.notes{
+ 
+margin-left: 5px;
+}
+ 
+ 
+button{
+background-color: #4CAF50;
+color: white;
+border: none;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+border-radius: 4px;
+margin-left: 30px;
+margin-top: 5px;
+}
+ 
+ 
+ 
+
+ 
+.title1{
+color: rgb(9, 188, 9);
+}
+.title2{
+color: rgb(254, 169, 10);
+}
+.title3{
+color:rgb(224, 12, 12);
+}
+ 
+ 
+.status{
+background-color:orange;
+border-radius: 1rem;
+ 
+ 
+}
+.status1{
+background-color: green;
+border-radius: 1rem;
+ 
+ 
+}
+.status2{
+background-color: red;
+border-radius: 1rem;
+ 
+}
+ 
+ 
+ 
+.container1 {
+display: flex;
+justify-content:baseline;
+/*margin-left: 20px;*/
+ 
+}
+ 
+.nat{
+    width: 600px;
+    height: 400px;
+    margin-left: 60px;
+    margin-top: 20px;
+    /*margin-bottom: 10px;*/
+ 
    
-  .submit {
-      margin-left: 30px;
-      /*margin-bottom: -50px;*/
-      margin-top: 6px;
-      border-radius: 10px;
-      width: 95px;
-      height: 36px ;
-      background-color: #0066B3;
-      color: #fafafa;
-     
-    }
-   
-   
-  .flex-container{
-     
-      width: 80%;
-      height: 30%;
-      display: flex;
-      /*margin-top: 30px;*/
-      margin-left: 700px;
-    }
-  .flex-box{
-      width: 100px;
-      height: 90px;
-      background: rgb(13, 166, 13);
-      text-align: center;
-      line-height: 28px;
-      margin: 2px;
-      margin-top: -350px;
-    }
-   
-  .flex-box1{
-      width: 100px;
-      height: 90px;
-      background:orange;
-      text-align: center;
-      line-height: 24px;
-      margin: 2px;
-      margin-top: -350px;
-    }
-  .flex-box2{
-      width: 100px;
-      height: 90px;
-      background: rgb(158, 80, 231);
-      text-align: center;
-      line-height: 24px;
-      margin: 2px;
-      margin-top: -350px;
-    }
-   
-   
-  .container{
-      margin-left: -5px;
-      margin-top:  70px;
-     
-     
+ 
+}
+ 
+#myChart {
+  background-color: white;
+}
+ 
+ 
+ 
+.calender{
+    margin-left: 60px;
+    margin-top: 3px;
+    line-height: 0.7px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 8px;
+    height: 25px;
   }
-   
-  table{
-      border-collapse: collapse;
-      width: 86%;
-      background-color: white;
-     
-      /*margin-top: 3%;
-      margin-left: 1%;*/
+ 
+.calender1{
+margin-left: 40px;
+margin-top: 3px;
+line-height: 0.7px;
+background-color: white;
+border-radius: 30px;
+padding: 8px;
+height: 25px;
   }
-  th,td{
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-  }
+ 
+.submit {
+    margin-left: 30px;
+    /*margin-bottom: -50px;*/
+    margin-top: 6px;
+    border-radius: 10px;
+    width: 95px;
+    height: 36px ;
+    background-color: #0066B3;
+    color: #fafafa;
    
-  /*.fa {
-  font-size: 25px;
   }
+ 
+ 
+.flex-container{
    
-  .fa-search {
-  font-size: 5px;
-  margin-right: 10px;
-  padding: 0px;
-  }*/
+    width: 110%;
+    height: 40%;
+    display: flex;
+    /*margin-top: 30px;*/
+    margin-left: 700px;
+  }
+.flex-box{
+    width: 160px;
+    height: 120px;
+    background: rgb(13, 166, 13);
+    text-align: center;
+    line-height: 28px;
+    margin: 2px;
+    margin-top: -300px;
+  }
+ 
+.flex-box1{
+    width: 160px;
+    height: 120px;
+    background:orange;
+    text-align: center;
+    line-height: 24px;
+    margin: 2px;
+    margin-top: -300px;
+  }
+.flex-box2{
+    width: 160px;
+    height: 120px;
+    background: rgb(158, 80, 231);
+    text-align: center;
+    line-height: 24px;
+    margin: 2px;
+    margin-top: -300px;
+  }
+ 
+ 
+.container{
+    margin-left: -3px;
+    margin-top:  -50px;
+   
+   
+}
+ 
+table{
+    border-collapse: collapse;
+    width: 86%;
+    background-color: white;
+   
+    /*margin-top: 3%;
+    margin-left: 1%;*/
+}
+th,td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+ 
+/*.fa {
+font-size: 25px;
+}
+ 
+.fa-search {
+font-size: 5px;
+margin-right: 10px;
+padding: 0px;
+}*/

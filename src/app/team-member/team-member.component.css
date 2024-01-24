@@ -141,15 +141,15 @@
    
      
   .flex-container{
-        width: 80%;
-        height: 30%;
+        width: 110%;
+        height: 40%;
         display: flex;
         /*margin-top: 20px;*/
         margin-left: 700px;
       }
   .flex-box{
-        width: 100px;
-        height: 90px;
+        width: 160px;
+        height: 120px;
         background: rgb(13, 166, 13);
         text-align: center;
         line-height: 28px;
@@ -158,8 +158,8 @@
       }
    
   .flex-box1{
-        width: 100px;
-        height: 90px;
+        width: 160px;
+        height: 120px;
         background:orange;
         text-align: center;
         line-height: 24px;
@@ -167,8 +167,8 @@
         margin-top: -350px;
       }
   .flex-box2{
-        width: 100px;
-        height: 90px;
+        width: 160px;
+        height: 120px;
         background: rgb(158, 80, 231);
         text-align: center;
         line-height: 24px;
@@ -178,8 +178,9 @@
      
      
   .container{
+        
         margin-left: -5px;
-        margin-top:  70px;
+        margin-top:  -70px;
     }
      
   table{

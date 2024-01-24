@@ -7,12 +7,16 @@ export class SharedService {
   employeedata: any;
   startdate: any;
   enddate: any;
+  employeeprojectname: any;
 
   constructor() { }
-  setemployeedata(data: any, startDate: any, endDate: any) {
+  setemployeedata(data: any, startDate: any, endDate: any,ProjectName:any) {
     this.employeedata = data;
     this.startdate = startDate;
     this.enddate = endDate;
+    this.employeeprojectname = ProjectName;
+ 
+   
 
   }
   getemployeedata() {
@@ -23,5 +27,8 @@ export class SharedService {
   }
   getemployeeenddate() {
     return this.enddate;
+  }
+  getemployeeprojectname() {
+    return this.employeeprojectname;
   }
 }

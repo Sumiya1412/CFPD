@@ -5,16 +5,16 @@ import { Chart } from 'chart.js';
 import { SharedService } from '../Shared/shared.service';
 import * as XLSX from 'xlsx';
 import { Adminservice } from '../services/admin.service';
-
+ 
 export interface Projectdetails {
   ProjectName: string;
-  EmployeeName: string;
+  TeamMemberName: string;
   NumberOfWorkingDays: string;
   TotalWorkingHours: string;
   CarbonFootprint: string;
   CarbonFootprintPercentage: string;
 }
-
+ 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './dashboard.component.html',
@@ -22,15 +22,15 @@ export interface Projectdetails {
 })
 export class DashboardComponent implements OnInit {
   projectdetails = [
-
-    ['ProjectName', 'EmployeeName', 'NumberOfWorkingDays', 'TotalWorkingHours', 'CarbonFootprint', 'CarbonFootprintPercentage']
-
+ 
+    ['ProjectName', 'TeamMemberName', 'NumberOfWorkingDays', 'TotalWorkingHours', 'CarbonFootprint', 'CarbonFootprintPercentage']
+ 
   ]
   searchParams!: HttpParams;
-
-
+ 
+ 
   exportToExcel(): void {
-
+ 
     /*if (this.projectdetails.length === 0) {
       console.warn('No data to download.');
       return;
@@ -43,26 +43,26 @@ export class DashboardComponent implements OnInit {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Projectdetails');
     XLSX.writeFile(wb, 'projectdetails.xlsx');
-
+ 
   }
-
-
-
+ 
+ 
+ 
   onSubmit() {
-
+ 
     this.searchParams = new HttpParams();
     this.searchParams = this.searchParams.append('projectName', this.selectedProject);
     this.searchParams = this.searchParams.append('startDate', this.startDate);
     this.searchParams = this.searchParams.append('endDate', this.endDate);
-
+ 
     this.adminservice.getTableData(this.searchParams).subscribe((data: any) => {
       this.TableData = data;
-      this.shared.setemployeedata(this.TableData, this.startDate, this.endDate);
+      this.shared.setemployeedata(this.TableData, this.startDate, this.endDate, this.selectedProject);
       console.log(data);
     });
-
-
-
+ 
+ 
+ 
     this.adminservice.getBarGraphData(this.searchParams).subscribe((data: any) => {
       this.BarGraphData = data;
       console.log(this.BarGraphData);
@@ -75,19 +75,19 @@ export class DashboardComponent implements OnInit {
       console.log(this.projectDetails);
       this.getGraphData();
     });
-
-
-
+ 
+ 
+ 
     /*this.adminservice.getCardData().subscribe(data => {
       this.CardData = data;
       console.log(this.CardData);
     });*/
-
-
+ 
+ 
   }
-
+ 
   getGraphData() {
-
+ 
     /*this.chartDatalabels.push(e.dateCreated);
      this.graph.append(e.carbonFootprint)
        console.log(this.graph);
@@ -99,16 +99,16 @@ export class DashboardComponent implements OnInit {
     for (var e of this.projectDetails) {
       this.chartDatalabels.push(e.dateCreated);
       this.graph.push(e.carbonFootprint)
-
+ 
       this.hours.push(e.totalWorkingHours)
-
+ 
     }
-
-
-
-
+ 
+ 
+ 
+ 
     this.ctx = document.getElementById('myChart');
-
+ 
     this.config = {
       type: 'bar',
       data: {
@@ -127,7 +127,7 @@ export class DashboardComponent implements OnInit {
           // borderColor: 'blue',
           backgroundColor: 'LightBlue'
         },
-
+ 
         ],
         options: {
           scales: {
@@ -145,19 +145,19 @@ export class DashboardComponent implements OnInit {
         }
       }
     }
-
+ 
     if (this.myChart) this.myChart.destroy(); //destroy prev chart
     this.myChart = new Chart(this.ctx, this.config);
-
+ 
   }
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
   toppingList: string[] = [''];
-
+ 
   projectNames: string[] = [];
   teams: string[] = [];
   selectedTeam: any;
@@ -177,35 +177,43 @@ export class DashboardComponent implements OnInit {
   averageCarbonFootprintPercentage: any;
   /*pageSize=10;
   currentPage=1;*/
-
-
-
-
+ 
+ 
+ 
+ 
   constructor(public httpClient: HttpClient,
     private shared: SharedService,
     public router: Router,
-    public adminservice: Adminservice) { }
-
-
+    public adminservice: Adminservice ) { }
+ 
+ 
   ctx: any;
   config: any;
   chartDatalabels: any[] = [];
-
-
+ 
+ 
   ngOnInit(): void {
-
+ 
     this.adminservice.getProjectNames().subscribe(data => {
       this.projectNames = data;
       this.projectDetails = [];
-      console.log(this.projectNames);
+      this.TableData = this.shared.getemployeedata();
+        this.selectedProject = this.shared.getemployeeprojectname();
+        this.startDate = this.shared.getemployeestartdate();
+        this.endDate = this.shared.getemployeeenddate();
+        if(this.selectedProject)
+       this.onSubmit();
+        console.log(this.shared.getemployeedata());
+     
       this.getGraphData();
-
+ 
     });
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
   }
 }
+ 

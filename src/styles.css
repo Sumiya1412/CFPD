@@ -193,4 +193,10 @@ mat-sidenav[style] {
     display: flex;
     justify-content: space-between;
     margin: 5px 25px;
-}   
+}  
+
+.app-page-title{
+  margin-right: 50%;
+  font-size: 22px;
+  font-weight: 420;
+}
