@@ -1,4 +1,6 @@
 <!-- attendance.component.html -->
+<br>
+<button mat-button style="background-color: #2a71e0; color: white; text-decoration: none;margin-left: 25px;margin-bottom: 2%;" *ngIf="showBack" (click)="refreshPage()"> Back </button>
 <div class="attendance-content">
     <div class="card-container">
         <span class="app-page-title"> Attendance </span>
@@ -6,7 +8,7 @@
 </div>
 <!--  
 <hr> -->
-<br>
+
 <div class="table-container">
     <div class="header">
         <button mat-button (click)="downloadExcel()" class="action-button">

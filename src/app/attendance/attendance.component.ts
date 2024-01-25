@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 import { PageEvent } from '@angular/material/paginator';
 import { MatPaginator } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Project {
   attendanceId: number;
@@ -57,6 +58,8 @@ export class AttendanceComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private httpClient: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService
   ) {
     const today = new Date();
@@ -126,12 +129,15 @@ export class AttendanceComponent implements OnInit {
 
         console.log('API Response:', value);
         console.log('DataSource Data:', this.dataSource.data);
+        this.backButton();
       },
+      
       error: (error) => {
         console.error('Error fetching search results:', error);
       }
     });
   }
+
 
   // onPageChange(event: PageEvent): void {
   //   const startIndex = event.pageIndex * event.pageSize;
@@ -209,5 +215,17 @@ export class AttendanceComponent implements OnInit {
 
     // Save to file
     XLSX.writeFile(wb, fileName);
+  }
+  showBack:boolean=false;
+  backButton(){
+    this.showBack=!this.showBack;
+  }
+ 
+  refreshPage(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['./'], {
+      relativeTo: this.route
+    })
   }
 }
