@@ -48,8 +48,8 @@ export class AttendanceComponent implements OnInit {
 
   pageSizeOptions = [5, 10, 25, 50, 100];
   pageSize: any;
-
-  displayedColumns: string[] = ['projectName', 'teamMemberName', 'noOfDaysOfAttendance', 'noOfHours'];
+  
+  displayedColumns: string[] = [];
   dataSource: MatTableDataSource<any>; // Use 'any' type for flexibility
   teams: Project[];
   completeTeams: Project[] = [];
@@ -72,6 +72,7 @@ export class AttendanceComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.displayedColumns= ['projectName', 'teamMemberName'];
     this.loadData();
   }
 
@@ -100,6 +101,7 @@ export class AttendanceComponent implements OnInit {
   }
 
   search(): void {
+    if(this.projectId || this.memberId){
     const searchParams = {
       projectName: this.projectId,
       teamMemberName: this.memberId,
@@ -126,7 +128,7 @@ export class AttendanceComponent implements OnInit {
             noOfHours: result.totalWorkingHours
           }));
         }
-
+        this.updateDisplayedColumns();
         console.log('API Response:', value);
         console.log('DataSource Data:', this.dataSource.data);
         this.backButton();
@@ -137,6 +139,9 @@ export class AttendanceComponent implements OnInit {
       }
     });
   }
+  else{ this.dataSource.data=[];
+  }
+}
 
 
   // onPageChange(event: PageEvent): void {
@@ -228,4 +233,16 @@ export class AttendanceComponent implements OnInit {
       relativeTo: this.route
     })
   }
+  
+updateDisplayedColumns(): void{
+    //check if both project name and member name are selected
+    if (this.projectId && this.memberId){
+      this.displayedColumns = ['projectName', 'teamMemberName', 'noOfDaysOfAttendance', 'noOfHours'];
+    }
+    else{
+      this.displayedColumns =['projectName', 'teamMemberName'];
+    }
+ 
+  }
+  
 }
