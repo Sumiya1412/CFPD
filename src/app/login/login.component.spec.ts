@@ -47,7 +47,7 @@ fdescribe('LoginComponent', () => {
     component.onLoginClick();
     tick();
     expect(loginSpy).toHaveBeenCalled();
-    expect(navigateSpy).toHaveBeenCalledWith(['/dashboard']);
+    expect(navigateSpy).toHaveBeenCalledWith(['/team-member-dashboard']);
   }));
 
   it('should handle API error and set error on password control', fakeAsync(() => {
