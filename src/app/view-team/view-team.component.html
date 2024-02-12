@@ -37,10 +37,10 @@
 <!-- app.component.html -->
 <div class="table-container">
     <div class="header">
-        <button mat-button (click)="exportToExcel()" class="action-button">
+        <button mat-button (click)="exportToExcel()" class="action-button" id="btnExportExcel">
             Download <mat-icon>download</mat-icon>
         </button>
-        <button mat-button (click)="openBulkUploadPopup()" class="action-button">
+        <button mat-button (click)="openBulkUploadPopup()" class="action-button" id="btnUploadExcel">
             Bulk Upload <mat-icon>cloud_upload</mat-icon>
         </button>
     </div>
@@ -110,10 +110,10 @@
     <h2 mat-dialog-title>Bulk Upload</h2>
     <mat-dialog-content>
         <p>Select a file to upload </p>
-        <input type="file" (change)="handleFileInput($event)">
+        <input type="file" (change)="handleFileInput($event)" id="btnChooseFile">
     </mat-dialog-content>
     <mat-dialog-actions>
-        <button mat-button (click)="uploadBulkData()">Upload</button>
-        <button mat-button (click)="closeBulkUploadPopup()">Close</button>
+        <button mat-button (click)="uploadBulkData()" id="btnUploadFile">Upload</button>
+        <button mat-button (click)="closeBulkUploadPopup()" id="btnClose">Close</button>
     </mat-dialog-actions>
 </mat-dialog-container>
