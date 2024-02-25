@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { ViewTeamComponent } from './view-team.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as XLSX from 'xlsx';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
 
 fdescribe('ViewTeamComponent', () => {
   let component: ViewTeamComponent;
@@ -68,12 +70,42 @@ fdescribe('ViewTeamComponent', () => {
   it('should handle file input', () => {
     const file = new File([''], 'test-file.xlsx', { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
     const event = { target: { files: [file] } };
-    
+
     // Assuming `handleFileInput` method logs the selected file
     spyOn(console, 'log');
-    
+
     component.handleFileInput(event);
-    
+
     expect(console.log).toHaveBeenCalledWith('Selected file:', file);
   });
+
+  it('should load data on initialization', fakeAsync(() => {
+    const mockData = [
+      { id: 1, projectName: 'Project A', teamMemberName: 'John', assignationStartDate: '2022-01-01', assignationEndDate: '2022-02-01' },
+      // Add more mock data as needed
+    ];
+    spyOn(component['httpClient'], 'get').and.returnValue(of(mockData));
+
+    component.ngOnInit();
+    tick();
+
+    expect(component.teams).toEqual(mockData);
+    expect(component.dataSource.data).toEqual(mockData);
+  }));
+
+  it('should render the table with the correct columns', () => {
+    const table = fixture.debugElement.query(By.css('table')).nativeElement;
+    const headerCells: any[] = table.querySelectorAll('th');
+
+    expect(headerCells.length).toBe(4); // Adjust the count based on your displayedColumns
+
+    const headerCellText = Array.from(headerCells).map((cell: HTMLElement) => cell?.textContent?.trim());
+    expect(headerCellText).toEqual(['Project Code filter_list', 'Team Member Name', 'Assignation Start Date', 'Assignation End Date']);
+  });
+
+  it('should upload bulk data', () => {
+    spyOn(component, 'closeBulkUploadPopup');
+    component.uploadBulkData();
+    expect(component.closeBulkUploadPopup).toHaveBeenCalled();
+  })
 });

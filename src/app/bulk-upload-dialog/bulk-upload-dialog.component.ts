@@ -17,6 +17,7 @@ export class BulkUploadDialogComponent {
     const file = event.target.files[0];
 
     if (file) {
+      this.errorMessage='';
       const allowedExtensions = ['.xlsx', '.xls'];
       const extension = file.name.substring(file.name.lastIndexOf('.'));
 
@@ -31,10 +32,10 @@ export class BulkUploadDialogComponent {
 
   uploadBulkData() {
     if (!this.selectedFile) {
+      this.errorMessage='Please select a file';
       console.error('Please select a file');
       return;
     }
-
     const uploadUrl =this.data?.isAttendance?'https://localhost:7078/api/Attendance/upload': 'https://localhost:7078/api/Excel1/upload';
     const formData: FormData = new FormData();
     formData.append('file', this.selectedFile, this.selectedFile.name);
